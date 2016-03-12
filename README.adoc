@@ -1,0 +1,12 @@
+= Maven vs Gradle incremental build
+
+Example on how well http://gradle.org[Gradle] handles incremental build compared to http://maven.apache.org/[Maven].footnote:[Tested with Maven 3.3.9 and Gradle 2.11]
+
+This example has two modules. Module 2 calls a method, `Foo.doSomething()`, on Module 1.
+
+. Run `mvn compile` on parent project.
+. Change method `doSomething()` of class `Foo` to `doSomethingElse()`
+. Run `mvn compile` again. It should fail because Module 2 calls a method that no longer exist, right? But it doesn't fail.
+. Run `mvn clean compile`. This time it fails as expected.
+
+Now try the same with Gradle (`gradle build`). It shouldn't need `clean` to pick up the changes from Module 1.

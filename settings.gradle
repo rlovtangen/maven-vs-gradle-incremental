@@ -1,0 +1,2 @@
+rootProject.name = 'incremental-parent'
+include 'incremental-module1', 'incremental-module2'

@@ -1,0 +1,5 @@
+
+description = 'Module 2'
+dependencies {
+  compile project(':incremental-module1')
+}
